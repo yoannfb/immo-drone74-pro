@@ -1,0 +1,23 @@
+{
+  "name": "immo-drone74-pro",
+  "version": "1.0.0",
+  "description": "Système professionnel de génération de pages immobilières",
+  "main": "src/scripts/main.js",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "generate": "python3 tools/generator.py",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "cat src/styles/*.css src/styles/components/*.css > dist/styles.css",
+    "build:js": "echo 'JS build à configurer'",
+    "lint": "eslint src/scripts/**/*.js",
+    "format": "prettier --write 'src/**/*.{js,css,html}'",
+    "test": "echo 'Tests à configurer'"
+  },
+  "keywords": ["immobilier", "drone", "web", "generator"],
+  "author": "Ton Nom <ton@email.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  }
+}
