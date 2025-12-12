@@ -1,0 +1,92 @@
+/**
+
+Component: Map
+==============
+Carte Google Maps + proximités
+*/
+
+.map-section {
+padding-block: var(--section-padding);
+background-color: var(--color-bg-alt);
+}
+.map-section__container {
+max-width: var(--container-max);
+margin: 0 auto;
+padding-inline: var(--container-padding);
+}
+.map-section__header {
+text-align: center;
+margin-bottom: var(--space-xl);
+}
+.map-section__subtitle {
+font-size: var(--text-sm);
+font-weight: var(--font-semibold);
+text-transform: uppercase;
+letter-spacing: var(--tracking-wider);
+color: var(--color-accent);
+margin-bottom: var(--space-sm);
+}
+.map-section__title {
+font-size: var(--text-4xl);
+font-weight: var(--font-bold);
+color: var(--color-primary);
+}
+/* Proximités */
+.proximity {
+margin-bottom: var(--space-lg);
+}
+.proximity__title {
+text-align: center;
+font-size: var(--text-2xl);
+margin-bottom: var(--space-md);
+}
+.proximity__grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: var(--space-md);
+max-width: 900px;
+margin: 0 auto var(--space-xl);
+}
+.proximity__item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: var(--space-sm) var(--space-md);
+background: var(--color-bg);
+border-radius: var(--radius-md);
+transition: all var(--transition-base);
+}
+.proximity__item:hover {
+background: var(--color-accent);
+color: var(--color-white);
+transform: translateX(4px);
+}
+.proximity__label {
+font-weight: var(--font-medium);
+font-size: 0.95rem;
+}
+.proximity__distance {
+font-size: 0.9rem;
+color: var(--color-accent);
+font-weight: var(--font-semibold);
+}
+.proximity__item:hover .proximity__distance {
+color: var(--color-white);
+}
+/* Map */
+.map-section__wrapper {
+height: 500px;
+border-radius: var(--radius-lg);
+overflow: hidden;
+box-shadow: var(--shadow-lg);
+}
+.map-section__wrapper iframe {
+width: 100%;
+height: 100%;
+border: 0;
+}
+@media (max-width: 768px) {
+.map-section__wrapper {
+height: 400px;
+}
+}

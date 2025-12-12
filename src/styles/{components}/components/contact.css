@@ -1,0 +1,73 @@
+/**
+
+Component: Contact
+==================
+Section contact avec infos agence
+*/
+
+.contact {
+padding-block: var(--section-padding);
+background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+color: var(--color-white);
+}
+.contact__container {
+max-width: var(--container-narrow);
+margin: 0 auto;
+padding-inline: var(--container-padding);
+text-align: center;
+}
+.contact__title {
+font-size: var(--text-4xl);
+font-weight: var(--font-bold);
+margin-bottom: var(--space-md);
+}
+.contact__description {
+font-size: var(--text-lg);
+margin-bottom: var(--space-xl);
+opacity: 0.9;
+}
+.contact__buttons {
+display: flex;
+gap: var(--space-md);
+justify-content: center;
+flex-wrap: wrap;
+margin-bottom: var(--space-xl);
+}
+.contact__button {
+display: inline-flex;
+align-items: center;
+gap: var(--space-xs);
+padding: var(--space-md) var(--space-lg);
+font-size: var(--text-base);
+font-weight: var(--font-semibold);
+text-decoration: none;
+border-radius: var(--radius-full);
+transition: all var(--transition-base);
+background: var(--color-white);
+color: var(--color-primary);
+}
+.contact__button:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.contact__button svg {
+width: 20px;
+height: 20px;
+}
+.contact__info {
+display: flex;
+flex-direction: column;
+gap: var(--space-sm);
+font-size: var(--text-base);
+opacity: 0.9;
+}
+@media (max-width: 640px) {
+.contact__buttons {
+flex-direction: column;
+width: 100%;
+}
+.contact__button {
+width: 100%;
+justify-content: center;
+}
+}

@@ -1,0 +1,69 @@
+/**
+
+Component: Amenities
+====================
+Liste des équipements et prestations
+*/
+
+.amenities {
+padding-block: var(--section-padding);
+background-color: var(--color-bg);
+}
+.amenities__container {
+max-width: var(--container-max);
+margin: 0 auto;
+padding-inline: var(--container-padding);
+}
+.amenities__header {
+text-align: center;
+margin-bottom: var(--space-xl);
+}
+.amenities__subtitle {
+font-size: var(--text-sm);
+font-weight: var(--font-semibold);
+text-transform: uppercase;
+letter-spacing: var(--tracking-wider);
+color: var(--color-accent);
+margin-bottom: var(--space-sm);
+}
+.amenities__title {
+font-size: var(--text-4xl);
+font-weight: var(--font-bold);
+color: var(--color-primary);
+}
+.amenities__list {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: var(--space-md);
+max-width: 1000px;
+margin: 0 auto;
+}
+.amenities__item {
+display: flex;
+align-items: flex-start;
+gap: var(--space-sm);
+padding: var(--space-md);
+background: var(--color-bg-alt);
+border-radius: var(--radius-md);
+transition: all var(--transition-base);
+}
+.amenities__item:hover {
+transform: translateX(4px);
+box-shadow: var(--shadow-md);
+}
+.amenities__icon {
+flex-shrink: 0;
+width: 24px;
+height: 24px;
+color: var(--color-accent);
+}
+.amenities__text {
+font-size: var(--text-base);
+color: var(--color-text);
+line-height: var(--leading-relaxed);
+}
+@media (max-width: 640px) {
+.amenities__list {
+grid-template-columns: 1fr;
+}
+}
