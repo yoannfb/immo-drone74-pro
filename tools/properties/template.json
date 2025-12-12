@@ -1,0 +1,38 @@
+{
+  "property": {
+    "title": "",
+    "location": "",
+    "price": "",
+    "reference": ""
+  },
+  "media": {
+    "heroImage": "",
+    "videoUrl": "",
+    "gallery": []
+  },
+  "features": [],
+  "amenities": [],
+  "location": {
+    "mapUrl": ""
+  },
+  "proximity": {
+    "items": []
+  },
+  "agency": {
+    "name": "",
+    "logo": "",
+    "website": "",
+    "address": "",
+    "city": "",
+    "phone": "",
+    "email": "",
+    "whatsapp": "",
+    "primaryColor": "#1a5f7a",
+    "accentColor": "#3182ce"
+  },
+  "droneService": {
+    "name": "Immo-Drone74",
+    "website": "https://www.immo-drone74.fr",
+    "showBranding": true
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "property": {
+    "title": "Maison Familiale avec Vue Panoramique",
+    "location": "Sillingy · Haute-Savoie",
+    "price": "589 000 €",
+    "reference": "REF-2025-001"
+  },
+  "media": {
+    "heroImage": "https://via.placeholder.com/1920x1080/1a5f7a/ffffff?text=Hero+Image",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "gallery": [
+      {
+        "url": "https://via.placeholder.com/800x600/1a5f7a/ffffff?text=Photo+1",
+        "alt": "Facade principale"
+      },
+      {
+        "url": "https://via.placeholder.com/800x600/2c7a9b/ffffff?text=Photo+2",
+        "alt": "Salon lumineux"
+      },
+      {
+        "url": "https://via.placeholder.com/800x600/3b96bd/ffffff?text=Photo+3",
+        "alt": "Cuisine equipee"
+      },
+      {
+        "url": "https://via.placeholder.com/800x600/4ab2de/ffffff?text=Photo+4",
+        "alt": "Chambre parentale"
+      },
+      {
+        "url": "https://via.placeholder.com/800x600/5bcef0/ffffff?text=Photo+5",
+        "alt": "Salle de bain"
+      },
+      {
+        "url": "https://via.placeholder.com/800x600/6de0ff/ffffff?text=Photo+6",
+        "alt": "Jardin paysager"
+      }
+    ]
+  },
+  "features": [
+    {
+      "value": "120",
+      "label": "m² habitable"
+    },
+    {
+      "value": "850",
+      "label": "m² terrain"
+    },
+    {
+      "value": "4",
+      "label": "Chambres"
+    },
+    {
+      "value": "2",
+      "label": "Salles de bain"
+    }
+  ],
+  "amenities": [
+    "Cuisine equipee et amenagee",
+    "Double vitrage PVC",
+    "Chauffage au gaz",
+    "Garage double",
+    "Terrasse couverte 40m²",
+    "Jardin paysager clos",
+    "Portail automatique",
+    "Aerotherme dans le garage"
+  ],
+  "location": {
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d87460.12345!2d6.0!3d45.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDU0JzAwLjAiTiA2wrAwMCcwMC4wIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
+  },
+  "proximity": {
+    "items": [
+      {
+        "label": "Ecole",
+        "distance": "3 min"
+      },
+      {
+        "label": "Bus",
+        "distance": "5 min"
+      },
+      {
+        "label": "Commerces",
+        "distance": "5 min"
+      },
+      {
+        "label": "Annecy",
+        "distance": "15 min"
+      },
+      {
+        "label": "Geneve",
+        "distance": "30 min"
+      },
+      {
+        "label": "Autoroute",
+        "distance": "10 min"
+      }
+    ]
+  },
+  "agency": {
+    "name": "Agence Immobiliere Premium",
+    "logo": "https://via.placeholder.com/200x60/1a5f7a/ffffff?text=Logo+Agence",
+    "website": "https://www.votre-agence.fr",
+    "address": "123 Avenue Principale",
+    "city": "74330 Sillingy",
+    "phone": "+33 4 50 12 34 56",
+    "email": "contact@votre-agence.fr",
+    "whatsapp": "33450123456",
+    "primaryColor": "#1a5f7a",
+    "accentColor": "#3182ce"
+  },
+  "droneService": {
+    "name": "Immo-Drone74",
+    "website": "https://www.immo-drone74.fr",
+    "showBranding": true
+  }
+}
