@@ -145,6 +145,7 @@ class PropertyGenerator:
         replacements = {
             '[[PROPERTY_TITLE]]': prop.get('title', ''),
             '[[PROPERTY_LOCATION]]': prop.get('location', ''),
+            '[[PROPERTY_PRICE]]': prop.get('price', ''),
             '[[PROPERTY_DESCRIPTION]]': self.generate_meta_description(config),
             '[[PROPERTY_IMAGE]]': media.get('heroImage', ''),
         }

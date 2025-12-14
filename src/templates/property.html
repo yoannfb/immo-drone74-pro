@@ -35,13 +35,14 @@
     <link rel="stylesheet" href="../src/styles/base.css">
     <link rel="stylesheet" href="../src/styles/components/header.css">
     <link rel="stylesheet" href="../src/styles/components/hero.css">
-    <link rel="stylesheet" href="../src/styles/components/video.css">
-    <link rel="stylesheet" href="../src/styles/components/gallery.css">
     <link rel="stylesheet" href="../src/styles/components/features.css">
     <link rel="stylesheet" href="../src/styles/components/amenities.css">
+    <link rel="stylesheet" href="../src/styles/components/gallery.css">
+    <link rel="stylesheet" href="../src/styles/components/video.css">
     <link rel="stylesheet" href="../src/styles/components/map.css">
     <link rel="stylesheet" href="../src/styles/components/contact.css">
     <link rel="stylesheet" href="../src/styles/components/footer.css">
+    <!--<link rel="stylesheet" href="../src/styles/components/main.css">-->
     
     <!-- Configuration JSON (sera injecté par le générateur Python) -->
     <script id="property-config" type="application/json">
@@ -82,20 +83,21 @@
         <!-- HERO -->
         <section class="hero" id="hero">
             <div class="hero__media" id="heroMedia">
-                <!-- Image ou vidéo injectée par JS -->
+                <img class="hero__image" src="[[PROPERTY_IMAGE]]" alt="[[PROPERTY_TITLE]]">
             </div>
+                <!-- Image ou vidéo injectée par JS -->
             
             <div class="hero__content">
-                <h1 class="hero__title" id="propertyTitle">Titre du bien</h1>
+                <h1 class="hero__title" id="propertyTitle">[[PROPERTY_TITLE]]</h1>
                 
                 <p class="hero__location" id="propertyLocation">
                     <svg class="hero__location-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
-                    Localisation
+                    [[PROPERTY_LOCATION]]
                 </p>
                 
-                <div class="hero__price" id="propertyPrice">Prix</div>
+                <div class="hero__price" id="propertyPrice">[[PROPERTY_PRICE]]</div>
                 
                 <div class="hero__cta">
                     <a href="#contact" class="hero__button hero__button--primary">
@@ -294,6 +296,6 @@
     <!-- ========================================
          JAVASCRIPT
          ======================================== -->
-    <script type="module" src="../src/scripts/main.js"></script>
+    <script type="module" src="../src/scripts/standalone.js"></script>
 </body>
 </html>
