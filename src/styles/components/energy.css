@@ -1,0 +1,259 @@
+/**
+ * PERFORMANCE ÉNERGÉTIQUE - Version améliorée
+ * ============================================
+ */
+
+.energy {
+  padding: 6rem 2rem;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(219, 234, 254, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(224, 231, 255, 0.8) 0%, transparent 50%),
+    linear-gradient(135deg, #cbd5e1 0%, #e2e8f0 50%, #dbeafe 100%);
+  position: relative;
+}
+
+/* Effet de fond décoratif - Plus visible */
+.energy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(26, 95, 122, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.energy__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.energy__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.energy__subtitle {
+  color: #1a5f7a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.energy__title {
+  font-size: 2.5rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* Content - Plus compact */
+.energy__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 968px) {
+  .energy__content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Item - Plus subtil */
+.energy__item {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px) saturate(150%);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+    0 0 60px rgba(26, 95, 122, 0.05) inset;
+  border: 1.5px solid rgba(226, 232, 240, 0.7);
+  transition: all 0.3s ease;
+}
+
+.energy__item:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(26, 95, 122, 0.2);
+}
+
+.energy__item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Scale */
+.energy__scale {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Barres - Plus fines et élégantes */
+.energy__bar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.energy__bar:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Barre active avec flèche */
+.energy__bar--active {
+  transform: translateX(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.energy__bar--active::after {
+  content: '◀';
+  font-size: 1.5rem;
+  position: absolute;
+  right: 1rem;
+  animation: arrowBounce 1s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Valeur */
+.energy__value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-left: auto;
+  padding-right: 2.5rem;
+}
+
+/* Couleurs DPE - Identiques */
+.energy__bar--a {
+  background: linear-gradient(135deg, #00A550 0%, #00C853 100%);
+  width: 50%;
+}
+
+.energy__bar--b {
+  background: linear-gradient(135deg, #4CB050 0%, #66BB6A 100%);
+  width: 60%;
+}
+
+.energy__bar--c {
+  background: linear-gradient(135deg, #FFEB00 0%, #FFF176 100%);
+  width: 75%;
+  color: #1e293b;
+}
+
+.energy__bar--d {
+  background: linear-gradient(135deg, #FFD600 0%, #FFE082 100%);
+  width: 70%;
+  color: #1e293b;
+}
+
+.energy__bar--e {
+  background: linear-gradient(135deg, #FF8C00 0%, #FFA726 100%);
+  width: 65%;
+}
+
+.energy__bar--f {
+  background: linear-gradient(135deg, #FF4500 0%, #FF6F3C 100%);
+  width: 60%;
+}
+
+.energy__bar--g {
+  background: linear-gradient(135deg, #DC143C 0%, #E53935 100%);
+  width: 55%;
+}
+
+/* Couleurs GES - Identiques */
+.energy__bar--ges-a {
+  background: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 100%);
+  width: 50%;
+  color: #00838F;
+}
+
+.energy__bar--ges-b {
+  background: linear-gradient(135deg, #80DEEA 0%, #4DD0E1 100%);
+  width: 60%;
+  color: #006064;
+}
+
+.energy__bar--ges-c {
+  background: linear-gradient(135deg, #4169E1 0%, #5E7CE2 100%);
+  width: 75%;
+}
+
+.energy__bar--ges-d {
+  background: linear-gradient(135deg, #3949AB 0%, #5C6BC0 100%);
+  width: 70%;
+}
+
+.energy__bar--ges-e {
+  background: linear-gradient(135deg, #283593 0%, #3949AB 100%);
+  width: 65%;
+}
+
+.energy__bar--ges-f {
+  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
+  width: 60%;
+}
+
+.energy__bar--ges-g {
+  background: linear-gradient(135deg, #0D1B3E 0%, #1A237E 100%);
+  width: 55%;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .energy {
+    padding: 4rem 1rem;
+  }
+  
+  .energy__content {
+    gap: 1.5rem;
+  }
+  
+  .energy__item {
+    padding: 1.5rem;
+  }
+  
+  .energy__bar {
+    height: 36px;
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+  
+  .energy__value {
+    font-size: 0.8rem;
+  }
+}

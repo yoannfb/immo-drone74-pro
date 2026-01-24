@@ -22,8 +22,8 @@
     <meta name="twitter:description" content="[[PROPERTY_DESCRIPTION]]">
     <meta name="twitter:image" content="[[PROPERTY_IMAGE]]">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <!-- Favicon 
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png"> -->
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +33,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../src/styles/variables.css">
     <link rel="stylesheet" href="../src/styles/base.css">
+    <link rel="stylesheet" href="../src/styles/components/navbar.css">
     <link rel="stylesheet" href="../src/styles/components/header.css">
     <link rel="stylesheet" href="../src/styles/components/hero.css">
     <link rel="stylesheet" href="../src/styles/components/features.css">
@@ -42,28 +43,77 @@
     <link rel="stylesheet" href="../src/styles/components/map.css">
     <link rel="stylesheet" href="../src/styles/components/contact.css">
     <link rel="stylesheet" href="../src/styles/components/footer.css">
-    <!--<link rel="stylesheet" href="../src/styles/components/main.css">-->
+    <link rel="stylesheet" href="../src/styles/components/description.css">
+    <link rel="stylesheet" href="../src/styles/components/home-staging.css">
+    <!--<link rel="stylesheet" href="../src/styles/components/demo-banner.css">-->
+    <link rel="stylesheet" href="../src/styles/components/energy.css">
+    <link rel="stylesheet" href="../src/styles/components/main.css">
     
     <!-- Configuration JSON (sera injecté par le générateur Python) -->
     <script id="property-config" type="application/json">
     [[PROPERTY_CONFIG_JSON]]
     </script>
 </head>
-<body>
+<body class="has-navbar">
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <!-- Logo/Branding -->
+    <a href="#" class="navbar__brand">
+      <svg class="navbar__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Immo-Drone74</span>
+    </a>
+
+    <!-- Menu -->
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="#features" class="navbar__link">Caractéristiques</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#description" class="navbar__link">Description</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#amenities" class="navbar__link">Équipements</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#gallery" class="navbar__link">Galerie</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#video" class="navbar__link">Vidéo</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#home-staging" class="navbar__link">Home Staging</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#map" class="navbar__link">Localisation</a>
+      </li>
+    </ul>
+
+    <!-- Bouton menu mobile -->
+    <button class="navbar__toggle" aria-label="Menu">
+      <span class="navbar__toggle-icon"></span>
+    </button>
+  </div>
+</nav>
     <!-- Skip to main content (accessibility) -->
     <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
 
-    <!-- ========================================
+<!--     
+    ========================================
          HEADER
-         ======================================== -->
+         ========================================
     <header class="header" id="header">
         <div class="header__container container">
-            <!-- Logo agence -->
+            Logo agence 
             <a href="#" class="header__logo-link" id="agencyLogoLink">
                 <img src="" alt="Logo agence" class="header__logo" id="agencyLogo">
             </a>
             
-            <!-- Badge drone -->
+            Badge drone 
             <div class="header__badge" id="droneBadge">
                 <svg class="header__badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -74,6 +124,8 @@
             </div>
         </div>
     </header>
+    -->
+
 
     <!-- ========================================
          MAIN CONTENT
@@ -123,6 +175,33 @@
             </div>
         </section>
 
+        <!-- DESCRIPTION -->
+        <section class="description" id="description">
+            <div class="description__container">
+                <div class="description__header reveal">
+                <div class="description__subtitle">Présentation</div>
+                <h2 class="description__title">À propos de ce bien</h2>
+                </div>
+                
+                <div class="description__content reveal stagger-1">
+                <div class="description__intro" id="descriptionIntro">
+                    <!-- Injecté par JS -->
+                </div>
+                
+                <div class="description__text" id="descriptionText">
+                    <!-- Paragraphes injectés par JS -->
+                </div>
+                
+                <div class="description__highlights" id="descriptionHighlights">
+                    <h3 class="description__highlights-title">Points forts</h3>
+                    <div class="description__highlights-grid" id="highlightsGrid">
+                    <!-- Injecté par JS -->
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
         <!-- VIDEO -->
         <section class="video-section" id="video">
             <div class="video-section__container">
@@ -135,23 +214,31 @@
                 </div>
                 
                 <div class="video-section__wrapper reveal stagger-1">
-                    <div class="video-section__aspect">
-                        <div class="video-section__player" id="videoPlayer">
-                            <!-- Vidéo injectée par JS -->
-                        </div>
+                    <div id="videoContainer" class="video-section__content">
+                        <!-- Les vidéos seront injectées ici par JavaScript -->
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FEATURES -->
-        <section class="features" id="features">
+        <!-- CARACTÉRISTIQUES - Bulles animées -->
+            <section class="features section" id="features">
             <div class="features__container">
-                <div class="features__grid" id="featuresGrid">
-                    <!-- Injecté par JS -->
+                <div class="features__header reveal">
+                <div class="features__subtitle">Caractéristiques</div>
+                <h2 class="features__title">En un coup d'œil</h2>
+                <p class="features__description">
+                    Découvrez les points clés de ce bien d'exception
+                </p>
+                </div>
+                
+                <!-- Container des bulles -->
+                <div class="features__bubbles">
+                <!-- Les bulles seront injectées ici par JavaScript -->
                 </div>
             </div>
-        </section>
+            </section>
 
         <!-- GALLERY -->
         <section class="gallery" id="gallery">
@@ -204,6 +291,51 @@
                 </div>
             </div>
         </section>
+        <!--PERFORMANCE ÉNERGÉTIQUE  -->
+<section class="energy section" id="energy">
+    <div class="energy__container">
+        <div class="energy__header reveal">
+            <div class="energy__subtitle">Efficacité</div>
+            <h2 class="energy__title">Performance énergétique</h2>
+        </div>
+        
+        <div class="energy__content reveal">
+            <!--DPE-->
+            <div class="energy__item">
+                <h3 class="energy__item-title">Diagnostic de performance énergétique (DPE)</h3>
+                <div class="energy__scale">
+                    <div class="energy__bar energy__bar--a" data-rating="A">A</div>
+                    <div class="energy__bar energy__bar--b" data-rating="B">B</div>
+                    <div class="energy__bar energy__bar--c energy__bar--active" data-rating="C">
+                        C
+                        <span class="energy__value" id="dpeValue"></span>
+                    </div>
+                    <div class="energy__bar energy__bar--d" data-rating="D">D</div>
+                    <div class="energy__bar energy__bar--e" data-rating="E">E</div>
+                    <div class="energy__bar energy__bar--f" data-rating="F">F</div>
+                    <div class="energy__bar energy__bar--g" data-rating="G">G</div>
+                </div>
+            </div>
+            
+            <!--GES-->
+            <div class="energy__item">
+                <h3 class="energy__item-title">Indice d'émission de gaz à effet de serre (GES)</h3>
+                <div class="energy__scale">
+                    <div class="energy__bar energy__bar--ges-a" data-rating="A">A</div>
+                    <div class="energy__bar energy__bar--ges-b" data-rating="B">B</div>
+                    <div class="energy__bar energy__bar--ges-c energy__bar--active" data-rating="C">
+                        C
+                        <span class="energy__value" id="gesValue"></span>
+                    </div>
+                    <div class="energy__bar energy__bar--ges-d" data-rating="D">D</div>
+                    <div class="energy__bar energy__bar--ges-e" data-rating="E">E</div>
+                    <div class="energy__bar energy__bar--ges-f" data-rating="F">F</div>
+                    <div class="energy__bar energy__bar--ges-g" data-rating="G">G</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- MAP -->
         <section class="map-section" id="map">
@@ -229,14 +361,151 @@
             </div>
         </section>
 
+        <!-- HOME STAGING VIRTUEL -->
+<section class="home-staging" id="home-staging">
+  <div class="home-staging__container">
+    <div class="home-staging__header reveal">
+      <div class="home-staging__subtitle">Visualisation AI</div>
+      <h2 class="home-staging__title">Potentiel de Transformation</h2>
+      <p class="home-staging__description">
+        Découvrez 3 styles de rénovation possibles grâce à l'intelligence artificielle
+      </p>
+    </div>
+    
+    <div class="home-staging__grid" id="homeStagingGrid">
+      <!-- Les sliders seront injectés ici par JavaScript -->
+    </div>
+    <!-- DISCLAIMER -->
+        <div class="home-staging__disclaimer">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+            <div class="home-staging__disclaimer-content">
+                <strong>Avertissement important</strong>
+                <p>Les visuels de home staging présentés sont des simulations virtuelles à but illustratif uniquement. Ils ne garantissent pas la faisabilité technique, réglementaire ou budgétaire des aménagements. Toute modification d'un bien immobilier nécessite l'intervention de professionnels qualifiés et peut être soumise à autorisations. Ni Immo-Drone74, ni le propriétaire ne sauraient être tenus responsables des décisions prises sur la base de ces visualisations.</p>
+            </div>
+        </div>
+  </div>
+</section>
+
         <!-- CONTACT -->
-        <section class="contact" id="contact">
-            <div class="contact__container">
-                <h2 class="contact__title">Intéressé par ce bien ?</h2>
-                <p class="contact__description">
-                    Contactez-nous pour organiser une visite ou obtenir plus d'informations.
+<section class="contact section" id="contact">
+    <div class="contact__container">
+        <div class="contact__header reveal">
+            <h2 class="contact__title">Intéressé par ce bien ?</h2>
+            <p class="contact__description">
+                Envoyez-nous un message, nous vous recontacterons dans les plus brefs délais.
+            </p>
+        </div>
+        
+        <div class="contact__content reveal">
+            <!-- FORMULAIRE -->
+            <form 
+                name="contact-bien" 
+                method="POST" 
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                class="contact__form"
+                id="contactForm">
+                
+                <!-- Champ anti-spam caché -->
+                <input type="hidden" name="form-name" value="contact-bien">
+                <p class="hidden">
+                    <label>Ne pas remplir : <input name="bot-field"></label>
                 </p>
                 
+                <!-- Champ caché avec référence du bien -->
+                <input type="hidden" name="bien" id="bienReference" value="">
+                
+                <!-- Nom & Prénom -->
+                <div class="form__row">
+                    <div class="form__group">
+                        <label for="nom" class="form__label">Nom *</label>
+                        <input 
+                            type="text" 
+                            id="nom" 
+                            name="nom" 
+                            class="form__input" 
+                            required
+                            placeholder="Votre nom">
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="prenom" class="form__label">Prénom *</label>
+                        <input 
+                            type="text" 
+                            id="prenom" 
+                            name="prenom" 
+                            class="form__input" 
+                            required
+                            placeholder="Votre prénom">
+                    </div>
+                </div>
+                
+                <!-- Email & Téléphone -->
+                <div class="form__row">
+                    <div class="form__group">
+                        <label for="email" class="form__label">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form__input" 
+                            required
+                            placeholder="votre@email.com">
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="telephone" class="form__label">Téléphone *</label>
+                        <input 
+                            type="tel" 
+                            id="telephone" 
+                            name="telephone" 
+                            class="form__input" 
+                            required
+                            placeholder="06 12 34 56 78">
+                    </div>
+                </div>
+                
+                <!-- Message -->
+                <div class="form__group">
+                    <label for="message" class="form__label">Message *</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        class="form__textarea" 
+                        rows="6" 
+                        required
+                        placeholder="Bonjour, je suis intéressé(e) par ce bien..."></textarea>
+                </div>
+                
+                <!-- Bouton submit -->
+                <button type="submit" class="form__submit">
+                    <span class="form__submit-text">Envoyer le message</span>
+                    <svg class="form__submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                </button>
+                
+                <!-- Message de succès -->
+                <div class="form__success" id="formSuccess" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <p><strong>Message envoyé !</strong><br>Nous vous recontacterons rapidement.</p>
+                </div>
+                
+                <!-- Message d'erreur -->
+                <div class="form__error" id="formError" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    <p><strong>Erreur</strong><br>Une erreur est survenue. Réessayez.</p>
+                </div>
+            </form>
+            
+            <!-- INFOS CONTACT (garde ton ancien système JS) -->
+            <div class="contact__info-wrapper">
                 <div class="contact__buttons" id="contactButtons">
                     <!-- Boutons contact injectés par JS -->
                 </div>
@@ -245,7 +514,9 @@
                     <!-- Infos agence injectées par JS -->
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
     </main>
 
@@ -255,7 +526,7 @@
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__content">
-                <!-- Agence -->
+                <!-- Agence 
                 <div class="footer__section">
                     <h3 class="footer__section-title" id="footerAgencyName">Agence</h3>
                     <p class="footer__text" id="footerAgencyAddress">Adresse</p>
@@ -265,14 +536,14 @@
                     <p class="footer__text">
                         <a href="mailto:" class="footer__link" id="footerAgencyEmail">Email</a>
                     </p>
-                </div>
+                </div>-->
                 
-                <!-- Bien -->
+                <!-- Bien 
                 <div class="footer__section">
                     <h3 class="footer__section-title">Ce bien</h3>
                     <p class="footer__text" id="footerPropertyRef">Référence</p>
                     <p class="footer__text" id="footerPropertyLocation">Localisation</p>
-                </div>
+                </div>-->
                 
                 <!-- Liens -->
                 <div class="footer__section">
@@ -285,9 +556,9 @@
             </div>
             
             <div class="footer__bottom">
-                <p>&copy; 2025 <span id="footerAgencyNameBottom">Agence</span> - Tous droits réservés</p>
+                <p>&copy; 2026 <span id="footerAgencyNameBottom">Immo-Drone74</span> - Tous droits réservés</p>
                 <p class="footer__drone-credit" id="footerDroneCredit">
-                    Photos & vidéos drone par <span id="footerDroneService">Service Drone</span>
+                    Photos & vidéos drone par <span id="footerDroneService">Immo-Drone74</span>
                 </p>
             </div>
         </div>

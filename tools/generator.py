@@ -12,6 +12,7 @@ Usage:
 import json
 import argparse
 import sys
+import shutil
 from pathlib import Path
 from typing import Dict, Any
 
@@ -34,14 +35,44 @@ class PropertyGenerator:
         try:
             with open(self.template_path, 'r', encoding='utf-8') as f:
                 content = f.read()
-            print(f"OK Template charge: {self.template_path}")
+            print(f"✓ Template chargé: {self.template_path}")
             return content
         except FileNotFoundError:
-            print(f"ERREUR Template non trouve: {self.template_path}")
+            print(f"✗ Template non trouvé: {self.template_path}")
             sys.exit(1)
         except Exception as e:
-            print(f"ERREUR lecture template: {e}")
+            print(f"✗ Erreur lecture template: {e}")
             sys.exit(1)
+    
+    def _copy_assets(self, output_dir: Path):
+        """
+        Copie les assets (CSS, JS, images) dans le dossier de sortie
+        
+        Args:
+            output_dir: Dossier de destination
+        """
+        print("\nCopie des assets...")
+        
+        # Dossier source
+        src_dir = Path('src')
+        
+        if not src_dir.exists():
+            print("⚠ Dossier src/ non trouvé, assets non copiés")
+            return
+        
+        # Dossier destination
+        dest_dir = output_dir / 'src'
+        
+        # Supprime l'ancien dossier si existe
+        if dest_dir.exists():
+            shutil.rmtree(dest_dir)
+        
+        # Copie tout le dossier src/
+        try:
+            shutil.copytree(src_dir, dest_dir)
+            print(f"✓ Assets copiés dans {dest_dir}")
+        except Exception as e:
+            print(f"⚠ Erreur copie assets: {e}")
     
     def load_config(self, config_path: str) -> Dict[str, Any]:
         """
@@ -56,16 +87,16 @@ class PropertyGenerator:
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 config = json.load(f)
-            print(f"OK Configuration chargee: {config_path}")
+            print(f"✓ Configuration chargée: {config_path}")
             return config
         except FileNotFoundError:
-            print(f"ERREUR Fichier JSON non trouve: {config_path}")
+            print(f"✗ Fichier JSON non trouvé: {config_path}")
             sys.exit(1)
         except json.JSONDecodeError as e:
-            print(f"ERREUR JSON invalide: {e}")
+            print(f"✗ JSON invalide: {e}")
             sys.exit(1)
         except Exception as e:
-            print(f"ERREUR lecture config: {e}")
+            print(f"✗ Erreur lecture config: {e}")
             sys.exit(1)
     
     def validate_config(self, config: Dict[str, Any]) -> bool:
@@ -82,19 +113,19 @@ class PropertyGenerator:
         
         for key in required_keys:
             if key not in config:
-                print(f"ERREUR Cle requise manquante: {key}")
+                print(f"✗ Clé requise manquante: {key}")
                 return False
         
         # Vérifications spécifiques
         if 'title' not in config['property']:
-            print("ERREUR property.title manquant")
+            print("✗ property.title manquant")
             return False
         
         if 'name' not in config['agency']:
-            print("ERREUR agency.name manquant")
+            print("✗ agency.name manquant")
             return False
         
-        print("OK Configuration valide")
+        print("✓ Configuration valide")
         return True
     
     def generate_meta_description(self, config: Dict[str, Any]) -> str:
@@ -112,7 +143,7 @@ class PropertyGenerator:
         parts = [prop.get('title', 'Bien immobilier')]
         
         if 'location' in prop:
-            parts.append(f"a {prop['location']}")
+            parts.append(f"à {prop['location']}")
         
         if 'price' in prop:
             parts.append(f"- {prop['price']}")
@@ -170,15 +201,16 @@ class PropertyGenerator:
         Returns:
             Chemin du fichier généré
         """
-        print("\nGENERATION DE LA PAGE...")
-        print("=" * 50)
+        print("\n" + "="*50)
+        print("GÉNÉRATION DE LA PAGE")
+        print("="*50)
         
         # 1. Charge la config
         config = self.load_config(config_path)
         
         # 2. Valide
         if not self.validate_config(config):
-            print("ERREUR Validation echouee")
+            print("✗ Validation échouée")
             sys.exit(1)
         
         # 3. Génère le HTML
@@ -196,15 +228,18 @@ class PropertyGenerator:
         # 5. Crée le dossier de sortie si nécessaire
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # 6. Écrit le fichier
+        # 6. Copie les assets (CSS, JS)
+        self._copy_assets(output_path.parent)
+        
+        # 7. Écrit le fichier
         try:
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write(html)
-            print(f"OK Page generee: {output_path}")
-            print("=" * 50)
+            print(f"✓ Page générée: {output_path}")
+            print("="*50 + "\n")
             return str(output_path)
         except Exception as e:
-            print(f"ERREUR ecriture fichier: {e}")
+            print(f"✗ Erreur écriture fichier: {e}")
             sys.exit(1)
     
     def generate_batch(self, config_dir: str, output_dir: str = 'dist'):
@@ -218,7 +253,7 @@ class PropertyGenerator:
         config_path = Path(config_dir)
         
         if not config_path.exists():
-            print(f"ERREUR Dossier non trouve: {config_dir}")
+            print(f"✗ Dossier non trouvé: {config_dir}")
             sys.exit(1)
         
         # Trouve tous les JSON
@@ -228,24 +263,24 @@ class PropertyGenerator:
         json_files = [f for f in json_files if f.stem != 'template']
         
         if not json_files:
-            print(f"ERREUR Aucun fichier JSON trouve dans {config_dir}")
+            print(f"✗ Aucun fichier JSON trouvé dans {config_dir}")
             sys.exit(1)
         
-        print(f"\nGENERATION BATCH de {len(json_files)} pages...")
+        print(f"\nGÉNÉRATION BATCH de {len(json_files)} pages...")
         print("=" * 50)
         
         for json_file in json_files:
-            print(f"\n-> Traitement: {json_file.name}")
+            print(f"\n→ Traitement: {json_file.name}")
             output_path = Path(output_dir) / f"{json_file.stem}.html"
             self.generate(str(json_file), str(output_path))
         
-        print("\nOK Generation batch terminee !")
+        print("\n✓ Génération batch terminée !")
 
 
 def main():
     """Point d'entrée principal"""
     parser = argparse.ArgumentParser(
-        description='Generateur de pages immobilieres professionnelles'
+        description='Générateur de pages immobilières professionnelles'
     )
     
     parser.add_argument(
@@ -262,13 +297,13 @@ def main():
     parser.add_argument(
         '-t', '--template',
         default='src/templates/property.html',
-        help='Chemin vers le template HTML (defaut: src/templates/property.html)'
+        help='Chemin vers le template HTML (défaut: src/templates/property.html)'
     )
     
     parser.add_argument(
         '-b', '--batch',
         action='store_true',
-        help='Mode batch: genere toutes les pages d\'un dossier'
+        help='Mode batch: génère toutes les pages d\'un dossier'
     )
     
     args = parser.parse_args()

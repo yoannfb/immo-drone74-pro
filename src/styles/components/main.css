@@ -2,23 +2,7 @@
 
 Main CSS
 ========
-Importe tous les fichiers CSS dans le bon ordre
-*/
 
-/* 1. Variables (toujours en premier) */
-@import 'variables.css';
-/* 2. Base styles */
-@import 'base.css';
-/* 3. Components */
-@import 'components/header.css';
-@import 'components/hero.css';
-@import 'components/video.css';
-@import 'components/gallery.css';
-@import 'components/features.css';
-@import 'components/amenities.css';
-@import 'components/map.css';
-@import 'components/contact.css';
-@import 'components/footer.css';
 /* 4. Utilities globales (optionnel) */
 .section {
 padding-block: var(--section-padding);

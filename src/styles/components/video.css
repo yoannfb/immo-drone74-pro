@@ -188,3 +188,51 @@
     display: none;
   }
 }
+
+/* Support multi-vidéos */
+#videoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.video__wrapper {
+  width: 100%;
+}
+
+.video__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a5f7a;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.video-section__aspect {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.video__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  #videoContainer {
+    gap: 2rem;
+  }
+  
+  .video__title {
+    font-size: 1.25rem;
+  }
+}
