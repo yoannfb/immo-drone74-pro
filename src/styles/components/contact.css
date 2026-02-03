@@ -1,78 +1,107 @@
 /**
- * Component: Contact
- * ==================
- * Section contact avec formulaire et infos agence
- */
 
-/* ===================================
-   SECTION CONTACT
-   =================================== */
+Component: Contact
+==================
+Section contact avec infos agence
+*/
 
 .contact {
-  padding-block: var(--section-padding);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-  color: var(--color-white);
-  position: relative;
+padding-block: var(--section-padding);
+background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+color: var(--color-white);
 }
-
 .contact__container {
-  max-width: var(--container-narrow);
-  margin: 0 auto;
-  padding-inline: var(--container-padding);
-  text-align: center;
+max-width: var(--container-narrow);
+margin: 0 auto;
+padding-inline: var(--container-padding);
+text-align: center;
 }
-
 .contact__title {
-  font-size: var(--text-4xl);
-  font-weight: var(--font-bold);
-  margin-bottom: var(--space-md);
+font-size: var(--text-4xl);
+font-weight: var(--font-bold);
+margin-bottom: var(--space-md);
 }
-
 .contact__description {
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-xl);
-  opacity: 0.9;
-  color: black;
+font-size: var(--text-lg);
+margin-bottom: var(--space-xl);
+opacity: 0.9;
 }
-
-/* ===================================
-   LAYOUT 2 COLONNES
-   =================================== */
-
+.contact__buttons {
+display: flex;
+gap: var(--space-md);
+justify-content: center;
+flex-wrap: wrap;
+margin-bottom: var(--space-xl);
+}
+.contact__button {
+display: inline-flex;
+align-items: center;
+gap: var(--space-xs);
+padding: var(--space-md) var(--space-lg);
+font-size: var(--text-base);
+font-weight: var(--font-semibold);
+text-decoration: none;
+border-radius: var(--radius-full);
+transition: all var(--transition-base);
+background: var(--color-white);
+color: var(--color-primary);
+}
+.contact__button:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.contact__button svg {
+width: 20px;
+height: 20px;
+}
+.contact__info {
+display: flex;
+flex-direction: column;
+gap: var(--space-sm);
+font-size: var(--text-base);
+opacity: 0.9;
+}
+@media (max-width: 640px) {
+.contact__buttons {
+flex-direction: column;
+width: 100%;
+}
+.contact__button {
+width: 100%;
+justify-content: center;
+}
+/* Layout centré - une seule colonne */
 .contact__content {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 3rem;
   margin-top: 3rem;
 }
 
-@media (min-width: 968px) {
-  .contact__content {
-    grid-template-columns: 2fr 1fr;
-  }
-}
-
-/* ===================================
-   FORMULAIRE
-   =================================== */
-
 .contact__form {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  padding: 3rem;
-  border-radius: 24px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.08),
-    0 1px 3px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  text-align: left;
+  width: 100%;
+  max-width: 600px;
 }
 
-/* Lignes de champs */
+.contact__info-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Formulaire */
+.contact__form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
 .form__row {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 640px) {
@@ -81,12 +110,156 @@
   }
 }
 
-/* Groupe de champs */
 .form__group {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Labels */
+.form__label {
+  display: block;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  outline: none;
+  border-color: #1a5f7a;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.1);
+}
+
+.form__textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form__submit {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #1a5f7a 0%, #3182ce 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(26, 95, 122, 0.3);
+}
+
+.form__submit:active {
+  transform: translateY(0);
+}
+
+.form__submit-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.form__success,
+.form__error {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.form__success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 2px solid #10b981;
+}
+
+.form__error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 2px solid #ef4444;
+}
+
+.form__success svg,
+.form__error svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.contact__info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+/* ===================================
+   FORMULAIRE - Améliorations visuelles
+   =================================== */
+
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+/* Formulaire avec dégradé subtil */
+.contact__form {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Espacement entre les lignes */
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem; /* Plus d'espace */
+}
+
+@media (min-width: 640px) {
+  .form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form__group {
+  margin-bottom: 2rem; /* Plus d'espace */
+}
+
+/* Labels stylés */
 .form__label {
   display: block;
   font-weight: 600;
@@ -96,7 +269,7 @@
   letter-spacing: 0.02em;
 }
 
-/* Inputs et textarea */
+/* Inputs avec dégradé et ombre */
 .form__input,
 .form__textarea {
   width: 100%;
@@ -117,13 +290,7 @@
   line-height: 1.6;
 }
 
-/* Placeholder */
-.form__input::placeholder,
-.form__textarea::placeholder {
-  color: #94a3b8;
-}
-
-/* Hover */
+/* Hover avec élévation */
 .form__input:hover,
 .form__textarea:hover {
   border-color: #cbd5e1;
@@ -131,7 +298,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Focus avec glow */
+/* Focus avec glow effect */
 .form__input:focus,
 .form__textarea:focus {
   outline: none;
@@ -143,10 +310,12 @@
     0 8px 20px rgba(26, 95, 122, 0.15);
 }
 
-/* ===================================
-   BOUTON SUBMIT
-   =================================== */
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: #94a3b8;
+}
 
+/* Bouton submit avec dégradé et animation */
 .form__submit {
   width: 100%;
   padding: 1.25rem 2rem;
@@ -170,7 +339,7 @@
   overflow: hidden;
 }
 
-/* Effet brillance */
+/* Effet de brillance au hover */
 .form__submit::before {
   content: '';
   position: absolute;
@@ -197,12 +366,6 @@
   transform: translateY(-1px);
 }
 
-.form__submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
 .form__submit-icon {
   width: 20px;
   height: 20px;
@@ -213,10 +376,7 @@
   transform: translateX(4px);
 }
 
-/* ===================================
-   MESSAGES SUCCÈS/ERREUR
-   =================================== */
-
+/* Messages succès/erreur avec animation */
 .form__success,
 .form__error {
   margin-top: 2rem;
@@ -266,72 +426,34 @@
   line-height: 1.6;
 }
 
-/* ===================================
-   BOUTONS CONTACT (anciens)
-   =================================== */
-
-.contact__buttons {
-  display: flex;
-  gap: var(--space-md);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: var(--space-xl);
+/* Champ anti-spam caché */
+.hidden {
+  display: none;
 }
 
-.contact__button {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-md) var(--space-lg);
-  font-size: var(--text-base);
-  font-weight: var(--font-semibold);
-  text-decoration: none;
-  border-radius: var(--radius-full);
-  transition: all var(--transition-base);
-  background: var(--color-white);
-  color: var(--color-primary);
-}
-
-.contact__button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.contact__button svg {
-  width: 20px;
-  height: 20px;
-}
-
-/* ===================================
-   INFOS AGENCE
-   =================================== */
-
-.contact__info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  font-size: var(--text-base);
-  opacity: 0.9;
-}
-
+/* Sidebar infos */
 .contact__info-wrapper {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-/* ===================================
-   UTILITAIRES
-   =================================== */
-
-.hidden {
-  display: none !important;
+/* Responsive */
+@media (max-width: 767px) {
+  .contact {
+    padding: 4rem 1rem;
+  }
+  
+  .contact__form {
+    padding: 2rem 1.5rem;
+  }
+  
+  .form__row {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* ===================================
-   ANIMATIONS
-   =================================== */
-
+/* Animation au chargement */
 .reveal {
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
@@ -351,46 +473,4 @@
 .reveal.visible {
   animation: fadeInUp 0.6s ease forwards;
 }
-
-/* ===================================
-   RESPONSIVE
-   =================================== */
-
-@media (max-width: 767px) {
-  .contact {
-    padding: 4rem 1rem;
-  }
-  
-  .contact__form {
-    padding: 2rem 1.5rem;
-  }
-  
-  .form__row {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact__buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .contact__button {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 640px) {
-  .contact__content {
-    gap: 2rem;
-  }
-  
-  .form__group {
-    margin-bottom: 1.5rem;
-  }
-  
-  .form__submit {
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-  }
 }

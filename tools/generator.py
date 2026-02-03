@@ -177,8 +177,10 @@ class PropertyGenerator:
             '[[PROPERTY_TITLE]]': prop.get('title', ''),
             '[[PROPERTY_LOCATION]]': prop.get('location', ''),
             '[[PROPERTY_PRICE]]': prop.get('price', ''),
+            '[[PROPERTY_REFERENCE]]': prop.get('reference', ''),
             '[[PROPERTY_DESCRIPTION]]': self.generate_meta_description(config),
             '[[PROPERTY_IMAGE]]': media.get('heroImage', ''),
+            '[[FORM_NAME]]': config.get('contactForm', {}).get('name', 'contact-bien'),
         }
         
         for placeholder, value in replacements.items():

@@ -48,11 +48,13 @@
     <!--<link rel="stylesheet" href="../src/styles/components/demo-banner.css">-->
     <link rel="stylesheet" href="../src/styles/components/energy.css">
     <link rel="stylesheet" href="../src/styles/components/main.css">
+    <link rel="stylesheet" href="../src/styles/components/download.css">
     
     <!-- Configuration JSON (sera injecté par le générateur Python) -->
     <script id="property-config" type="application/json">
     [[PROPERTY_CONFIG_JSON]]
     </script>
+    <meta name="google-site-verification" content="kdQ-ccrIXkytn-u9_eAlucwviW1BWO-kh2hgnpTB0hk" />
 </head>
 <body class="has-navbar">
 
@@ -401,7 +403,7 @@
         <div class="contact__content reveal">
             <!-- FORMULAIRE -->
             <form 
-                name="contact-bien" 
+                name="[[FORM_NAME]]"
                 method="POST" 
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
@@ -409,7 +411,7 @@
                 id="contactForm">
                 
                 <!-- Champ anti-spam caché -->
-                <input type="hidden" name="form-name" value="contact-bien">
+                <input type="hidden" name="form-name" value="[[FORM_NAME]]">
                 <p class="hidden">
                     <label>Ne pas remplir : <input name="bot-field"></label>
                 </p>
@@ -514,6 +516,24 @@
                     <!-- Infos agence injectées par JS -->
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+<!-- TÉLÉCHARGER LA FICHE -->
+<section class="download section" id="download">
+    <div class="download__container">
+        <div class="download__content">
+            <svg class="download__icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6zm8-10v5h-4v-5H8l4-4 4 4h-2z"/>
+            </svg>
+            <h3 class="download__title">Télécharger la fiche complète</h3>
+            <p class="download__description">Retrouvez toutes les informations détaillées du bien au format PDF</p>
+            <a href="src/assets/documents/fiche-technique.pdf" download class="download__button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                Télécharger le PDF
+            </a>
         </div>
     </div>
 </section>
